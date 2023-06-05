@@ -1,3 +1,2 @@
-#!/usr/bin/python3
-
-print("Lawrence Wangare")
+#!/bin/bash
+python3 "$PYFILE"
