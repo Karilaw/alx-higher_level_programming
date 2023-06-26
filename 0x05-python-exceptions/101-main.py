@@ -20,4 +20,4 @@ def print_list(my_list, len):
     return len
 
 result = safe_function(print_list, [1, 2, 3, 4], 10)
-print("result of print_list: {}".format(result))
+print("result of print_list: {}".format(result)
