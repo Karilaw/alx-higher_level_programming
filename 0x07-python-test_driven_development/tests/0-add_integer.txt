@@ -1,0 +1,30 @@
+"""
+This is a test file for the add_integer function from the my_module module.
+
+The add_integer function takes two arguments, a and b, which must be integers
+or floats. If either argument is not an integer or float, a TypeError is raised
+with the message "a must be an integer" or "b must be an integer".
+
+If either argument is a float, it is first cast to an integer before the addition
+is performed.
+
+The function returns the result of the addition as an integer.
+"""
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(1.0, 2)
+3
+>>> add_integer(1, 2.0)
+3
+>>> add_integer(1.0, 2.0)
+3
+>>> add_integer("1", 2)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+>>> add_integer(1, "2")
+Traceback (most recent call last):
+    ...
+TypeError: b must be an integer
