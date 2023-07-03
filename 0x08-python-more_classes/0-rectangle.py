@@ -3,4 +3,5 @@
 
 
 class Rectangle:
+    """this an empty class"""
     pass
