@@ -6,6 +6,7 @@ class Rectangle:
     """A class to represent a rectangle"""
     number_of_instances = 0
     print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """Initialize a new Rectangle object
 
@@ -60,14 +61,17 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
     def area(self):
         """Get the area of Rectangle"""
         return self.__height * self.__width
+
     def perimeter(self):
         """Get the perimeter of Rectangle"""
         if self.width == 0 or self.height == 0:
             return 0
         return (self.__width + self.__height) * 2
+
     def __str__(self):
         """Return a string representation of the rectangle"""
         if self.width == 0 or self.height == 0:
@@ -79,13 +83,16 @@ class Rectangle:
             if i < self.height - 1:
                 rectangle_str += "\n"
         return rectangle_str
+
     def __repr__(self):
         """Return a string representation of the rectangle"""
         return f"Rectangle({self.width}, {self.height})"
+
     def __del__(self):
         """Print a message when the rectangle is deleted"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Return the biggest rectangle based on the area
@@ -95,7 +102,7 @@ class Rectangle:
             rect_2 (Rectangle): The second rectangle
 
         Returns:
-            Rectangle: The biggest rectangle, or rect_1 if both have the same area
+            Rectangle: The biggest rectangle
 
         Raises:
             TypeError: If rect_1 or rect_2 is not an instance of Rectangle
@@ -108,6 +115,7 @@ class Rectangle:
             return rect_1
         else:
             return rect_2
+
     @classmethod
     def square(cls, size=0):
         """Return a new square Rectangle instance
@@ -119,4 +127,3 @@ class Rectangle:
             Rectangle: A new square rectangle instance
         """
         return cls(size, size)
-
