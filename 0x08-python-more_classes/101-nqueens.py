@@ -1,5 +1,11 @@
 #!/usr/bin/python3
+"""This module provides a solution to the N queens problem
+using a recursive backtracking algorithm.
+"""
+
+
 import sys
+
 
 def can_place(board, row, col):
     """
@@ -7,8 +13,8 @@ def can_place(board, row, col):
 
     Args:
         board (list): A list representing
-        row (int): The row index of the position to check.
-        col (int): The column index of the position to check.
+        row (int): The row index.
+        col (int): The column index.
 
     Returns:
         bool: True if a queen can be placed, False otherwise.
