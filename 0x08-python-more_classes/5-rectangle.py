@@ -58,14 +58,17 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
+
     def area(self):
         """Get the area of Rectangle"""
         return self.__height * self.__width
+
     def perimeter(self):
         """Get the perimeter of Rectangle"""
         if self.width == 0 or self.height == 0:
             return 0
         return (self.__width + self.__height) * 2
+
     def __str__(self):
         """Return a string representation of the rectangle"""
         if self.width == 0 or self.height == 0:
@@ -76,9 +79,11 @@ class Rectangle:
             if i < self.height - 1:
                 rectangle_str += "\n"
         return rectangle_str
+
     def __repr__(self):
         """Return a string representation of the rectangle"""
         return f"Rectangle({self.width}, {self.height})"
+
     def __del__(self):
         """Print a message when the rectangle is deleted"""
         print("Bye rectangle...")
