@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Defining say_my_name function"""
 
 
 def say_my_name(first_name, last_name=""):
@@ -6,8 +7,8 @@ def say_my_name(first_name, last_name=""):
     Prints a message with given first and last name
 
     Args:
-        first_name (str): The first name to include in a message
-        last_name (str): The last name to include in the message. Optional
+        first_name (str): The first name
+        last_name (str): The last name
 
     Raises:
         TypeError: If first_name or last_name is not a string
