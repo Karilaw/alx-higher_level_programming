@@ -102,7 +102,7 @@ class Rectangle:
             rect_2 (Rectangle): The second rectangle
 
         Returns:
-            Rectangle: The biggest rectangle, or rect_1 if both have the same area
+            Rectangle: The biggest rectangle
 
         Raises:
             TypeError: If rect_1 or rect_2 is not an instance of Rectangle
