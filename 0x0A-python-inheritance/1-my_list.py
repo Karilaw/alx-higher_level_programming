@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""A module that defines a MyList class that
-inherits from the built-in list class."""
+"""A module that defines a MyList class"""
+
 
 class MyList(list):
     """A class that represents a custom list."""
