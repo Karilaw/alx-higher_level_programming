@@ -6,7 +6,9 @@ that describes json data
 
 def class_to_json(obj):
     """
-    Returns the dictionary description with simple data structure for JSON serialization of an object
+    Returns the dictionary description with
+    simple data structure for
+    JSON serialization of an object
 
     :param obj: an instance of a Class
     :return: the dictionary description of the object
