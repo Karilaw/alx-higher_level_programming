@@ -14,5 +14,6 @@ def save_to_json_file(my_obj, filename):
     :param my_obj: the object to serialize
     :filename: name of the file
     """
+    data = json.dumps(my_obj)
     with open(filename, 'w', encoding='utf-8') as f:
-        return json.dumb(my_obj, f)
+        return f.write(data)
