@@ -1,3 +1,7 @@
+#!/usr/python3
+"""a module defining Rectangle
+class
+"""
 from models.base import Base
 
 
@@ -125,3 +129,8 @@ class Rectangle(Base):
         """
         if not isinstance(value, int):
             raise TypeError("y must be an integer")
+        self._y = value
+
+    def area(self):
+        """ Gets the area of Rectangle"""
+        return self._width * self._height

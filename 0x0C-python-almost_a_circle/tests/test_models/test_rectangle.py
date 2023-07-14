@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""A module defining a TestRectangle
+that cointains test cases
+"""
+
+
 import unittest
 from models.rectangle import Rectangle
 
