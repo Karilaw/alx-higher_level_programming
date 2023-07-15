@@ -134,3 +134,9 @@ class Rectangle(Base):
     def area(self):
         """ Gets the area of Rectangle"""
         return self._width * self._height
+
+    def display(self):
+        """ A fuction that print # when it finds instance
+        of Rectangle"""
+        for i in range(self.height):
+            print("#" * self.width)
