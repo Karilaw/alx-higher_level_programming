@@ -33,7 +33,9 @@ class TestBase(unittest.TestCase):
     def test_to_json_string(self):
         d = [{'id': 1, 'width': 10, 'height': 2, 'x': 1, 'y': 9}]
         json_d = Base.to_json_string(d)
-        self.assertEqual(json_d, '[{"id": 1, "width": 10, "height": 2, "x": 1, "y": 9}]')
+        expected = '[{"id": 1, "width": 10, "height": 2, "x": 1, "y": 9}]'
+        self.assertEqual(json_d, expected)
+
         self.assertIsInstance(json_d, str)
 
     def test_to_json_string_empty(self):
@@ -53,8 +55,9 @@ class TestBase(unittest.TestCase):
         r2 = Rectangle(2, 4, 0, 0, 2)
         Rectangle.save_to_file([r1, r2])
         with open("Rectangle.json", "r") as f:
-            self.assertEqual(f.read(), '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, {"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]')
-
+            expected = ('[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, '
+            '{"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]')
+            self.assertEqual(f.read(), expected)
 
     def test_save_to_file_empty(self):
         Rectangle.save_to_file(None)
@@ -65,7 +68,8 @@ class TestBase(unittest.TestCase):
             self.assertEqual(f.read(), '[]')
 
     def test_from_json_string(self):
-        json_str = '[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8}, {"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]'
+        json_str = ('[{"id": 1, "width": 10, "height": 7, "x": 2, "y": 8},'
+            ' {"id": 2, "width": 2, "height": 4, "x": 0, "y": 0}]')
         list_dicts = Base.from_json_string(json_str)
         self.assertEqual(list_dicts, [{'id': 1, 'width': 10, 'height': 7, 'x': 2, 'y': 8}, {'id': 2, 'width': 2, 'height': 4, 'x': 0, 'y': 0}])
         self.assertIsInstance(list_dicts, list)
