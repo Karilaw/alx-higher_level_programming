@@ -3,6 +3,7 @@
 class
 """
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -87,10 +88,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Gets the x-coordinate of the rectangle.
-
-        Returns:
-            int: The x-coordinate of the rectangle.
+        """Gets the x-coordinate of the rectangle
         """
         return self._x
 
@@ -138,5 +136,31 @@ class Rectangle(Base):
     def display(self):
         """ A fuction that print # when it finds instance
         of Rectangle"""
+        print('\n' * self.y, end='')
         for i in range(self.height):
+            print(" " * self.x, end='')
             print("#" * self.width)
+
+    def __str__(self):
+        """Returns string representation of instance"""
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+                self.id, self.x, self.y, self.width, self.height)
+
+    def update(self, *args, **kwags):
+        """assign each arg to attribute"""
+        attributes = ["id", "width", "height", "x", "y"]
+        if args:
+            for i, arg in enumerate(args):
+                if i < len(attributes):
+                    setattr(self, attributes[i], arg)
+        else:
+            for key, value in kwags.items():
+                if key in attributes:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns the dictionary representation
+        of a Rectangle
+        """
+        return {'id': self.id, 'width': self.width, 'height':
+                self.height, 'x': self.x, 'y': self.y}
