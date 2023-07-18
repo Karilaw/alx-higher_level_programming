@@ -2,6 +2,7 @@
 """A module that define a class Base
 """
 import json
+import csv
 from os import path
 
 
@@ -69,3 +70,37 @@ class Base:
             data = f.read()
             dict_l = cls.from_json_string(data)
             return [cls.create(**d) for d in dict_l]
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serializes data to csv data
+        in a csv file"""
+        filename = cls.__name__ + '.csv'
+        with open(filename, 'w') as f:
+            if list_objs is None:
+                f.write('[]')
+            else:
+                fieldnames = list(list_objs[0].to_dictionary().keys())
+                writer_file = csv.DictWriter(f, fieldnames=fieldnames)
+                writer_file.writeheader()
+                for obj in list_objs:
+                    writer_file.writerow(obj.to_dictionary())
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserilizes csv data to python
+        objects"""
+        filename = cls.__name__+'.csv'
+        try:
+            with open(filename, 'r') as f:
+                reader = csv.DictReader(f)
+                dict_list = [row for row in reader]
+                result = []
+                for d in dict_list:
+                    int_dict = {k: int(v) for k, v in d.items()}
+                    obj = cls.create(**int_dict)
+                    result.append(obj)
+                return result
+
+        except FileNotFoundError:
+            return []
