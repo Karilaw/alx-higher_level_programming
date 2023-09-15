@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """lists the first object in state"""
 
+
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -23,10 +24,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    result = session.query(State).filter(
-        State.name.like('%a%')).order_by(State.id).all()
+    new_state = State(name="Louisiana")
 
-    for state in result:
-        print("{}: {}".format(state.id, state.name))
+    session.add(new_state)
+    session.commit()
+
+    print(new_state.id)
 
     session.close()

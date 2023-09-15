@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""lists the first object in state"""
+"""Script that changes the name of a
+State object in the database hbtn_0e_6_usa
+"""
 
 import sys
 from model_state import Base, State
@@ -22,11 +24,9 @@ if __name__ == "__main__":
 
     Session = sessionmaker(bind=engine)
     session = Session()
+    state_to_update = session.query(State).filter(State.id == 2).first()
 
-    result = session.query(State).filter(
-        State.name.like('%a%')).order_by(State.id).all()
-
-    for state in result:
-        print("{}: {}".format(state.id, state.name))
-
+    if state_to_update:
+        state_to_update.name = "New Mexico"
+        session.commit()
     session.close()
