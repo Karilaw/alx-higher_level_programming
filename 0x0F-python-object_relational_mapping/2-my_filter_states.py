@@ -35,9 +35,13 @@ if __name__ == "__main__":
     # Fetch all rows
     rows = cur.fetchall()
 
-    # Print each row
-    for row in rows:
-        print(row)
+    # Check if any rows were returned
+    if rows:
+        # Print each row
+        for row in rows:
+            print(row)
+    else:
+        print("No states found with that name.")
 
     # Close cursor and database connection
     cur.close()
