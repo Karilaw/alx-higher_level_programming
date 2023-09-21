@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # Define the query
     query = (
         "SELECT * FROM states "
-        "WHERE name = '{}' "
+        "WHERE name LIKE BINARY '{}' "
         "ORDER BY states.id ASC"
     ).format(sys.argv[4])
 
@@ -36,12 +36,10 @@ if __name__ == "__main__":
     rows = cur.fetchall()
 
     # Check if any rows were returned
-    if rows:
-        # Print each row
-        for row in rows:
-            print(row)
-    else:
-        print("No states found with that name.")
+
+    # Print each row
+    for row in rows:
+        print(row)
 
     # Close cursor and database connection
     cur.close()
