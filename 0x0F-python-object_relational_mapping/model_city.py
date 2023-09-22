@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/ python3
 """a module that  implements City"""
 
 from sqlalchemy import Column, Integer, String, ForeignKey
