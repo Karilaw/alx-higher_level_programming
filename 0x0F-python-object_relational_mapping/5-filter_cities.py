@@ -5,10 +5,10 @@ lists all cities of a state from database
 """
 
 if __name__ == "__main__":
-    import MYSQLdb
+    import MySQLdb
     import sys
 
-    db = MYSQLdb.connect(
+    db = MySQLdb.connect(
             host="localhost",
             port=3306,
             user=sys.argv[1],
