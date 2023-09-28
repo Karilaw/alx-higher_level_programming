@@ -4,4 +4,4 @@
 
 URL=$1
 
-curl -sI "URL" | grep 'Content-Length' | cut -d' ' -f2
+curl -sI $URL | grep 'Content-Length' | cut -d' ' -f2
