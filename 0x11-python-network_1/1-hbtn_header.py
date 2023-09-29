@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 A module to get Request id
 """
@@ -25,5 +25,6 @@ def fetch_url(url):
                 print(header[1])
 
 
-url = sys.argv[1]
-fetch_url(url)
+if __name__ == "__main__":
+    url = sys.argv[1]
+    fetch_url(url)
