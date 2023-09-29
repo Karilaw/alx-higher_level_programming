@@ -1,5 +1,7 @@
-#!/usr/bin/env python3
-""" a module that sens email data to url"""
+#!/usr/bin/python3
+"""
+A module that sends email data to a URL
+"""
 import urllib.request
 import urllib.parse
 import sys
@@ -7,11 +9,12 @@ import sys
 
 def send_post_request(url, email):
     """
-    Sends a POST request to a given URL with the email as a parameter
-    and displays the body of response
+    Sends a POST request to a given URL with
+    the email as a parameter
+    and displays the body of the response.
 
     Args:
-        url (str): The URL to send the Post request to.
+        url (str): The URL to send the POST request to.
         email (str): The email to send as a parameter.
 
     Prints:
@@ -30,7 +33,7 @@ def send_post_request(url, email):
         print("Failed to make a request to {}: {}".format(url, e.reason))
 
 
-url = sys.argv[1]
-email = sys.argv[2]
-
-send_post_request(url, email)
+if __name__ == "__main__":
+    url = sys.argv[1]
+    email = sys.argv[2]
+    send_post_request(url, email)
