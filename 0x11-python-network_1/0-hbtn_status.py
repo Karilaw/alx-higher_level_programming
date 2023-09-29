@@ -3,7 +3,7 @@
 import urllib.request
 
 
-def fetch_url(url):
+def fetch_url():
     """
     fetches a given URL using the urllib package in Python
 
@@ -25,4 +25,4 @@ def fetch_url(url):
 
 
 if __name__ == "__main__":
-    fetch_url(url)
+    fetch_url()
