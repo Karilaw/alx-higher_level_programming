@@ -14,6 +14,7 @@ def fetch_url(url):
         str: the body of response, showing its type, content
         and utf8 content.
     """
+    url = "https://alx-intranet.hbtn.io/status"
     with urllib.request.urlopen(url) as response:
         html = response.read()
 
@@ -23,5 +24,5 @@ def fetch_url(url):
         print("\t- utf8 content: {}".format(html.decode('utf-8')))
 
 
-url = "https://alx-intranet.hbtn.io/status"
-fetch_url(url)
+if __name__ == "__main__":
+    fetch_url(url)
