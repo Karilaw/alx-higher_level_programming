@@ -1,5 +1,7 @@
-#!/usr/bin/env python3
-""" Module that sends request and print error code"""
+#!/usr/bin/python3
+"""
+A module that sends a request to a URL and prints the error code if any
+"""
 import urllib.request
 import urllib.error
 import sys
@@ -7,13 +9,15 @@ import sys
 
 def send_request(url):
     """
-    sends a request to url and displays the body of request
+    Sends a request to a given URL and displays the body of the response.
+    If an HTTP error occurs, it prints the error code.
 
     Args:
-        url (str): The URL to send the request to
+        url (str): The URL to send the request to.
 
     Prints:
-        str: the body of reponse
+        str: The body of the response, decoded in utf-8,
+        or the HTTP error code.
     """
     try:
         with urllib.request.urlopen(url) as response:
@@ -22,5 +26,6 @@ def send_request(url):
         print("Error code: {}".format(e.code))
 
 
-url = sys.argv[1]
-send_request(url)
+if __name__ == "__main__":
+    url = sys.argv[1]
+    send_request(url)
